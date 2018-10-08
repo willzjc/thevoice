@@ -29,3 +29,4 @@ Sample admin account:
 * `$ python manage.py migrate`
 * `$ python manage.py runserver`
 
+![](https://i.postimg.cc/KvcyWfqN/image.png "Main page")
