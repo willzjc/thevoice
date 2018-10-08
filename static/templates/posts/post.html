@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="well">
+            <div class="post">
+                <div class="post__meta">
+                    <a href="/+{{ post.author.username }}">
+                        +{{ post.author.username }}
+                    </a>
+                </div>
+
+                <div class="post__content">
+                    <a href="/post_details/{{ post.id }}">
+                    {{ post.content }}
+                    </a>
+                </div>
+                <br>
+
+                <div class="post__content">
+                    <b>Rating:</b> {{ post.average_rating }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
