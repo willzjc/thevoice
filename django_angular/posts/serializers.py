@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from ..authentication.serializers import AccountSerializer
-from .models import Post
+from .models import Post,Rating
 
 
 class SongSerializer(serializers.ModelSerializer):
@@ -19,3 +19,16 @@ class SongSerializer(serializers.ModelSerializer):
     def get_validation_exclusions(self, *args, **kwargs):
         exclusions = super(SongSerializer, self).get_validation_exclusions()
         return exclusions + ['author']
+
+class RatingSerializer(serializers.ModelSerializer):
+
+    author = AccountSerializer(read_only=True, required=False)
+
+    class Meta:
+        model = Rating
+        fields = ('id', 'reviewer', 'song', 'rating')
+        read_only_fields = ('id')
+
+    def get_validation_exclusions(self, *args, **kwargs):
+        exclusions = super(RatingSerializer, self).get_validation_exclusions()
+        return exclusions + ['reviewer']

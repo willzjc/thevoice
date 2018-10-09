@@ -1,8 +1,8 @@
 from rest_framework import permissions, viewsets
 from rest_framework.response import Response
-from .models import Post
+from .models import Post, Rating
 from .permissions import IsAuthorOfPost
-from .serializers import SongSerializer
+from .serializers import SongSerializer,RatingSerializer
 
 
 class SongViewSet(viewsets.ModelViewSet):
@@ -24,17 +24,19 @@ class AccountPostsViewSet(viewsets.ViewSet):
     serializer_class = SongSerializer
 
     def list(self, request, account_username=None):
+        print 'attempting to list related posts: %s'%account_username
         queryset = self.queryset.filter(author__username=account_username)
         print 'queryset: ' + str(queryset)
         serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data)
 
 class PostRatingsViewSet(viewsets.ViewSet):
-    queryset = Post.objects.select_related('rating_author').all()
-    serializer_class = SongSerializer
+    queryset = Rating.objects.select_related('reviewer').all()
+    serializer_class = RatingSerializer
 
-    def list(self, request, post_id=None):
-        queryset = self.queryset.filter(song__ratingAuthor=post_id)
+    def list(self, request, post_id='1'):
+        print 'attempting to list related post ratings: %s'%post_id
+        queryset = self.queryset.filter(song__id=post_id)
         print 'queryset: ' + str(queryset)
 
         serializer = self.serializer_class(queryset, many=True)

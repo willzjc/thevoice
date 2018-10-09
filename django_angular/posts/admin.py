@@ -7,9 +7,9 @@ class SongAdmin(admin.ModelAdmin):
     list_display = ('content', 'author')
 
 class RatingAdmin(admin.ModelAdmin):
-    search_fields = ('rating','post_id__rating_author','post_id__rating')
-    ordering = ('-rating_author',)
-    list_display = ('song', 'rating', 'rating_author')
+    search_fields = ('rating','post_id__reviewer','post_id__rating')
+    ordering = ('-reviewer',)
+    list_display = ('song', 'rating', 'reviewer')
 
 admin.site.register(Post, SongAdmin)
 

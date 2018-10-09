@@ -13,8 +13,7 @@ class Post(models.Model):
     def average_rating(self):
         all_ratings = map(lambda x: x.rating, self.rating_set.all())
         avg=np.mean(all_ratings)
-        # print 'avg is:',avg
-        # print type(avg)
+
         if np.isnan(avg):
             avg='Not Rated yet'
         return avg
@@ -24,7 +23,7 @@ class Post(models.Model):
 
 class Rating(models.Model):
 
-    rating_author = models.ForeignKey(Account)
+    reviewer = models.ForeignKey(Account)
     song = models.ForeignKey(Post)
     RATING_CHOICES = (
         tuple((i, str(i)) for i in range(-1, 101))

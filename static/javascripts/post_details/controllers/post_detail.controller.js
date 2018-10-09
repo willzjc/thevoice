@@ -29,9 +29,9 @@
          */
         function activate() {
             var post_id = $routeParams.post_id;
-            var post_details = [];
+            var post_details = [];                            j
 
-            PostDetail.get(post_id).then(profileSuccessFn, profileErrorFn);
+            PostDetail.get(post_id).then(postDetailSuccessFn, profileErrorFn);
 
             // Posts.get(post_id).then(postsSuccessFn, postsErrorFn);
 
@@ -41,7 +41,7 @@
              * @name profileSuccessProfile
              * @desc Update `profile` on viewmodel
              */
-            function profileSuccessFn(data, status, headers, config) {
+            function postDetailSuccessFn(data, status, headers, config) {
                 vm.post_detail = data.data;
             }
 
@@ -50,7 +50,7 @@
              * @name profileErrorFn
              * @desc Redirect to index and show error Snackbar
              */
-            function profileErrorFn(data, status, headers, config) {
+            function postDetailErrorFn(data, status, headers, config) {
                 $location.url('/');
                 Snackbar.error('That entry does not exist.');
             }
