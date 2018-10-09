@@ -29,4 +29,11 @@ Sample admin account:
 * `$ python manage.py migrate`
 * `$ python manage.py runserver`
 
+Main Page with average scores of songs
 ![](https://i.postimg.cc/KvcyWfqN/image.png "Main page")
+
+Add new song entry for user
+![](https://i.postimg.cc/VvV4DzZ2/image.png "New Entry")
+
+Group Management
+![](https://i.postimg.cc/LstC2KhZ/image.png "Admin")
