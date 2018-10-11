@@ -30,13 +30,22 @@ class AccountPostsViewSet(viewsets.ViewSet):
         serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data)
 
+class PostDetailViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = SongSerializer
+
+    # def get(self,request,something):
+    #     print something
+
 class PostRatingsViewSet(viewsets.ViewSet):
     queryset = Rating.objects.select_related('reviewer').all()
     serializer_class = RatingSerializer
 
-    def list(self, request, post_id='1'):
+
+
+    def list(self, request, post_id=None):
         print 'attempting to list related post ratings: %s'%post_id
-        queryset = self.queryset.filter(song__id=post_id)
+        queryset = self.queryset.filter(song__reviewer=post_id)
         print 'queryset: ' + str(queryset)
 
         serializer = self.serializer_class(queryset, many=True)
