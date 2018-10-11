@@ -22,7 +22,7 @@ class SongSerializer(serializers.ModelSerializer):
 
 class RatingSerializer(serializers.ModelSerializer):
 
-    author = AccountSerializer(read_only=True, required=False)
+    reviewer = AccountSerializer(read_only=True, required=False)
 
     class Meta:
         model = Rating

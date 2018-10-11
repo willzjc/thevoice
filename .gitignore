@@ -1,14 +1,19 @@
-# Custom folders
+# Environmental folders
 
 env
 env/
 venv
 venv/
 
+.vscode
+.vscode/
+
 .idea
 .idea/
+
 .git
 .git/
+
 # Python compiled byte code
 *.pyc
 
