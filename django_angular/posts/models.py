@@ -10,6 +10,10 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    # class Meta:
+    #     verbose_name = _('song')
+    #     verbose_name_plural = _('songs')
+
     def average_rating(self):
         all_ratings = map(lambda x: x.rating, self.rating_set.all())
         avg=np.mean(all_ratings)
@@ -24,10 +28,11 @@ class Post(models.Model):
 class Rating(models.Model):
 
     reviewer = models.ForeignKey(Account)
-    song = models.ForeignKey(Post)
+    post = models.ForeignKey(Post)
     RATING_CHOICES = (
         tuple((i, str(i)) for i in range(-1, 101))
     )
 
     RATING_CHOICES.__add__(tuple((None,'Make a selection')))
     rating = models.IntegerField(choices=RATING_CHOICES,default=None,null=True,blank=True)
+

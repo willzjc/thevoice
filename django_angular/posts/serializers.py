@@ -3,7 +3,7 @@ from ..authentication.serializers import AccountSerializer
 from .models import Post,Rating
 
 
-class SongSerializer(serializers.ModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     author = AccountSerializer(read_only=True, required=False)
     average_rating=serializers.SerializerMethodField()
 
@@ -20,20 +20,19 @@ class SongSerializer(serializers.ModelSerializer):
         # print 'args',args
         # print 'kwargs',kwargs
 
-        exclusions = super(SongSerializer, self).get_validation_exclusions()
+        exclusions = super(PostSerializer, self).get_validation_exclusions()
         return exclusions + ['author']
 
 class RatingSerializer(serializers.ModelSerializer):
 
     reviewer = AccountSerializer(read_only=True, required=False)
-    song = SongSerializer(read_only=True, required=False)
-
+    post = PostSerializer(read_only=True, required=False)
 
     class Meta:
         model = Rating
-        fields = ('id', 'reviewer', 'song', 'rating')
+        fields = ('id', 'reviewer', 'post', 'rating')
         read_only_fields = ('id'
-                            ,'reviewer','song'
+                            ,'reviewer','post'
                             )
 
     # def get_validation_exclusions(self, *args, **kwargs):
