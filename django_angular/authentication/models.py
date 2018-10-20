@@ -5,6 +5,8 @@ from django.utils import timezone
 from django.core.mail import send_mail
 
 
+# Appears to house account management functions
+# extends BaseUserManager from django.contrib.auth.models
 class AccountManager(BaseUserManager):
     def create_user(self, email, password=None, **kwargs):
         if not email:

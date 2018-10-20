@@ -13,18 +13,11 @@ router.register(r'posts', PostViewSet)
 router.register(r'accounts', AccountViewSet)
 accounts_router =     routers.NestedSimpleRouter(router, r'accounts', lookup='account')
 accounts_router.register(r'posts', AccountPostsViewSet)
-# accounts_router.register(r'accountposts', AccountPostsViewSet)
 
-
-
-# router.register(r'reviews', RatingsViewSet)
-router.register(r'reviews', RatingsViewSet)
 
 router.register(r'postdetails', PostDetailViewSet)
 post_ratings_router = routers.NestedSimpleRouter(router, r'postdetails', lookup='post')
 post_ratings_router.register(r'reviews', PostRatingsViewSet)
-
-
 
 
 urlpatterns = patterns(

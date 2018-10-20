@@ -30,24 +30,23 @@ class AccountPostsViewSet(viewsets.ViewSet):
         serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data)
 
+
 class PostDetailViewSet(viewsets.ModelViewSet):
     lookup_field = 'id'
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-##############################################################
-
-class RatingsViewSet(viewsets.ModelViewSet):
-    queryset = Rating.objects.order_by('id')
+    queryset = Rating.objects.all()
+    # queryset = Post.objects.order_by('-created_at')
     serializer_class = RatingSerializer
 
-
 class PostRatingsViewSet(viewsets.ViewSet):
+
     queryset = Rating.objects.select_related('post').all()
     serializer_class = RatingSerializer
 
-    def list(self, request, arg=None):
-        print 'attempting to list related post ratings: %s'%arg
-        queryset = self.queryset.filter(post__id=arg)
-        print 'queryset: ' + str(queryset)
+    def list(self, request, post_id=None):
+        print 'attempting to list related post ratings for ID: %s'%post_id
+        # queryset = self.queryset.filter(post__id=post_id)
+        print self.queryset
+        queryset = self.queryset.filter(post__id=post_id)
+        # print 'queryset: ' + str(queryset)
         serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data)
