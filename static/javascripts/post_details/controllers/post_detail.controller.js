@@ -29,9 +29,9 @@
          */
         function activate() {
             var post_id = $routeParams.post_id;
-            var post_details = [];                            j
+            var post_details = [];
 
-            PostDetail.get(post_id).then(postDetailSuccessFn, profileErrorFn);
+            PostDetail.get(post_id).then(postDetailSuccessFn, postDetailErrorFn);
 
             // Posts.get(post_id).then(postsSuccessFn, postsErrorFn);
 

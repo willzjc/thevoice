@@ -31,11 +31,17 @@ class AccountPostsViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
 
+# class PostDetailViewSet(viewsets.ModelViewSet):
+#     lookup_field = 'id'
+#     queryset = Rating.objects.all()
+#     # queryset = Post.objects.order_by('-created_at')
+#     serializer_class = RatingSerializer
+
 class PostDetailViewSet(viewsets.ModelViewSet):
     lookup_field = 'id'
-    queryset = Rating.objects.all()
+    queryset = Post.objects.all()
     # queryset = Post.objects.order_by('-created_at')
-    serializer_class = RatingSerializer
+    serializer_class = PostSerializer
 
 class PostRatingsViewSet(viewsets.ViewSet):
 

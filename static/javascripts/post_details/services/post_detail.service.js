@@ -51,11 +51,11 @@
          * @memberOf ts.post_details.services.PostDetail
          */
         function get(post_id) {
-            return $http.get('/api/v1/post_details/' + post_id + '/' );
+            return $http.get('/api/v1/postdetails/' + post_id + '/' );
         }
 
         function getRelated(post_id) {
-            return $http.get('/api/v1/post_details/' + post_id + '/' );
+            return $http.get('/api/v1/postdetails/' + post_id + '/reviews/' );
         }
 
 
