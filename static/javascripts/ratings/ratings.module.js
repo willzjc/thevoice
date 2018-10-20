@@ -2,18 +2,18 @@
   'use strict';
 
   angular
-    .module('ts.posts', [
-      'ts.posts.controllers',
-      'ts.posts.directives',
-      'ts.posts.services'
+    .module('ts.ratings', [
+      'ts.ratings.controllers',
+      'ts.ratings.directives',
+      'ts.ratings.services'
     ]);
 
   angular
-    .module('ts.posts.controllers', []);
+    .module('ts.ratings.controllers', []);
 
   angular
-    .module('ts.posts.directives', ['ngDialog']);
+    .module('ts.ratings.directives', ['ngDialog']);
 
   angular
-    .module('ts.posts.services', []);
+    .module('ts.ratings.services', []);
 })();

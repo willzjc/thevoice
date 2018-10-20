@@ -1,20 +1,20 @@
 /**
- * PostsController
- * @namespace ts.posts.controllers
+ * RatingsController
+ * @namespace ts.ratings.controllers
  */
 (function () {
     'use strict';
 
     angular
-        .module('ts.posts.controllers')
-        .controller('PostsController', PostsController);
+        .module('ts.ratings.controllers')
+        .controller('RatingsController', RatingsController);
 
-    PostsController.$inject = ['$scope'];
+    RatingsController.$inject = ['$scope'];
 
     /**
-     * @namespace PostsController
+     * @namespace RatingsController
      */
-    function PostsController($scope) {
+    function RatingsController($scope) {
         var vm = this;
 
         vm.columns = [];
@@ -25,11 +25,11 @@
         /**
          * @name activate
          * @desc Actions to be performed when this controller is instantiated
-         * @memberOf ts.posts.controllers.PostsController
+         * @memberOf ts.ratings.controllers.RatingsController
          */
         function activate() {
             $scope.$watchCollection(function () {
-                return $scope.posts;
+                return $scope.ratings;
             }, render);
             $scope.$watch(function () {
                 return $(window).width();
@@ -40,8 +40,8 @@
         /**
          * @name calculateNumberOfColumns
          * @desc Calculate number of columns based on screen width
-         * @returns {Number} The number of columns containing Posts
-         * @memberOf ts.posts.controllers.PostsControllers
+         * @returns {Number} The number of columns containing Ratings
+         * @memberOf ts.ratings.controllers.RatingsControllers
          */
         function calculateNumberOfColumns() {
             var width = $(window).width();
@@ -62,7 +62,7 @@
          * @name approximateShortestColumn
          * @desc An algorithm for approximating which column is shortest
          * @returns The index of the shortest column
-         * @memberOf ts.posts.controllers.PostsController
+         * @memberOf ts.ratings.controllers.RatingsController
          */
         function approximateShortestColumn() {
             var scores = vm.columns.map(columnMapFn);
@@ -99,10 +99,10 @@
 
         /**
          * @name render
-         * @desc Renders Posts into columns of approximately equal height
-         * @param {Array} current The current value of `vm.posts`
-         * @param {Array} original The value of `vm.posts` before it was updated
-         * @memberOf ts.posts.controllers.PostsController
+         * @desc Renders Ratings into columns of approximately equal height
+         * @param {Array} current The current value of `vm.ratings`
+         * @param {Array} original The value of `vm.ratings` before it was updated
+         * @memberOf ts.ratings.controllers.RatingsController
          */
         function render(current, original) {
             if (current !== original) {

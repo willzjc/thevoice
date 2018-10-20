@@ -1,39 +1,39 @@
 /**
- * Posts
- * @namespace ts.posts.services
+ * Ratings
+ * @namespace ts.ratings.services
  */
 (function () {
     'use strict';
 
     angular
-        .module('ts.posts.services')
-        .factory('Posts', Posts);
+        .module('ts.ratings.services')
+        .factory('Ratings', Ratings);
 
-    Posts.$inject = ['$http'];
+    Ratings.$inject = ['$http'];
 
     /**
-     * @namespace Posts
+     * @namespace Ratings
      * @returns {Factory}
      */
-    function Posts($http) {
-        var Posts = {
+    function Ratings($http) {
+        var Ratings = {
             all: all,
             create: create,
             get: get
         };
 
-        return Posts;
+        return Ratings;
 
         ////////////////////
 
         /**
          * @name all
-         * @desc Get all Posts
+         * @desc Get all Ratings
          * @returns {Promise}
-         * @memberOf ts.posts.services.Posts
+         * @memberOf ts.ratings.services.Ratings
          */
         function all() {
-            return $http.get('/api/v1/posts/');
+            return $http.get('/api/v1/ratings/');
         }
 
 
@@ -42,23 +42,23 @@
          * @desc Create a new song
          * @param {string} content The content of the new song entry
          * @returns {Promise}
-         * @memberOf ts.posts.services.Posts
+         * @memberOf ts.ratings.services.Ratings
          */
         function create(content) {
-            return $http.post('/api/v1/posts/', {
+            return $http.post('/api/v1/ratings/', {
                 content: content
             });
         }
 
         /**
          * @name get
-         * @desc Get the Posts of a given user
-         * @param {string} username The username to get Posts for
+         * @desc Get the Ratings of a given user
+         * @param {string} post_id The post_id to get Ratings for
          * @returns {Promise}
-         * @memberOf ts.posts.services.Posts
+         * @memberOf ts.ratings.services.Ratings
          */
-        function get(username) {
-            return $http.get('/api/v1/accounts/' + username + '/posts/');
+        function get(post_id) {
+            return $http.get('/api/v1/postdetails/' + post_id + '/reviews/');
         }
     }
 })();

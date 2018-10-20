@@ -35,7 +35,7 @@
 
             // Posts.get(post_id).then(postsSuccessFn, postsErrorFn);
 
-            PostDetail.getRelated(post_id).then(postsSuccessFn, postsErrorFn);
+            // PostDetail.getRelated(post_id).then(postsSuccessFn, postsErrorFn);
 
             /**
              * @name profileSuccessProfile

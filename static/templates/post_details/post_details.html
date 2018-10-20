@@ -1,9 +1,10 @@
 <div class="post_detail" ng-show="vm.post_detail">
   <div class="jumbotron post_rating__header">
-    <h1 class="post_rating__post_details">+{{ vm.post_detail}}</h1>
-    <p class="post_rating__tagline">{{ vm.post_detail.tagline }}</p>
+    <h1 class="post_rating__post_details">+{{ vm.post_detail.author.username}}</h1>
+    <!--<p class="post_rating__tagline">{{ vm.post_detail.tagline }}</p>-->
+    <p class="post_rating__tagline">{{ vm.post_detail.content }}</p>
   </div>
 
-  <post_ratings post_ratings="vm.post_detail"></post_ratings>
+  <ratings ratings="vm.ratings"></ratings>
 
 </div>
