@@ -10,6 +10,7 @@
             'ts.posts',
             'ts.utils',
             'ts.post_details',
+            'ts.ratings',
             'ts.profiles'
         ]);
 

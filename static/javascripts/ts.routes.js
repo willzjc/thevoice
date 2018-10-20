@@ -24,6 +24,10 @@
             controller: 'PostDetailController',
             controllerAs: 'vm',
             templateUrl: '/static/templates/post_details/post_details.html'
+        // }).when('/post_details/+:', {
+        //     controller: 'PostDetailController',
+        //     controllerAs: 'vm',
+        //     templateUrl: '/static/templates/post_details/post_details.html'
         }).when('/+:username', {
             controller: 'ProfileController',
             controllerAs: 'vm',

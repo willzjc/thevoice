@@ -58,6 +58,7 @@
          * @memberOf ts.ratings.services.Ratings
          */
         function get(post_id) {
+            // console.log(post_id);
             return $http.get('/api/v1/postdetails/' + post_id + '/reviews/');
         }
     }
