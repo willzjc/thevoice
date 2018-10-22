@@ -9,35 +9,32 @@
         .module('ts.post_details.controllers')
         .controller('PostDetailController', PostDetailController);
 
-    PostDetailController.$inject = ['$location', '$routeParams', 'Posts', 'PostDetail', 'Snackbar'];
+    PostDetailController.$inject = ['$location', '$routeParams', 'Ratings', 'PostDetail', 'Snackbar'];
 
     /**
      * @namespace PostDetailController
      */
-    function PostDetailController($location, $routeParams, Posts, PostDetail, Snackbar) {
+    function PostDetailController($location, $routeParams, Ratings, PostDetail, Snackbar) {
         var vm = this;
 
         vm.post_detail = undefined;
-        vm.posts = [];
+        vm.ratings = [];
 
         activate();
 
         /**
          * @name activate
-         * @desc Actions to be performed when this controller is instantiated
-         * @memberOf ts.post_details.controllers.PostDetailController
-         */
-        function activate() {
-            var post_id = $routeParams.post_id;
-            var post_details = [];
+        * @desc Actions to be performed when this controller is instantiated
+            * @memberOf ts.post_details.controllers.PostDetailController
+            */
+            function activate() {
+                var post_id = $routeParams.post_id;
+                var post_details = [];
 
-            PostDetail.get(post_id).then(postDetailSuccessFn, postDetailErrorFn);
+                PostDetail.get(post_id).then(postDetailSuccessFn, postDetailErrorFn);
 
-            // Posts.get(post_id).then(postsSuccessFn, postsErrorFn);
 
-            // PostDetail.getRelated(post_id).then(postsSuccessFn, postsErrorFn);
-
-            /**
+                /**
              * @name profileSuccessProfile
              * @desc Update `profile` on viewmodel
              */

@@ -2,6 +2,7 @@
     <div class="col-sm-12">
         <div class="well">
             <div class="rating">
+
                 <div class="rating__meta">
                     <a href="/+{{ rating.author.username }}">
                         +{{ rating.author.username }}
@@ -10,14 +11,11 @@
 
                 <div class="rating__content">
                     <a href="/rating_details/{{ rating.id }}">
-                    {{ rating.content }}
+                    {{ rating.rating }}
                     </a>
                 </div>
-                <br>
 
-                <div class="rating__content">
-                    <b>Rating:</b> {{ rating.average_rating }}
-                </div>
+                <br>
 
             </div>
         </div>
